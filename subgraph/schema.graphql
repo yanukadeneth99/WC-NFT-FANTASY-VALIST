@@ -1,0 +1,96 @@
+# ---- ENUMS ----
+
+# Game Type
+enum GameType {
+  Prediction
+  Quiz
+  NumberGuess
+}
+
+# ---- OBJECTS ----
+
+# Winners of the games
+type Winner @entity(immutable: true) {
+  "composed of unique data"
+  id: String!
+  "addresses of the winners in order (0 position is the 1st place)"
+  players: [Bytes!]!
+  "applicable in Quiz Type and Number Guessing game"
+  gameId: BigInt
+  "game enum which has three types"
+  game: Game!
+}
+
+# Game Info
+type Game @entity {
+  "gameID of the game"
+  id: String!
+  "addresses of the people participating"
+  people: [Bytes!]!
+  "gameId is applicable in Quiz Type and Number Guessing game"
+  gameId: BigInt
+  "enum which has three types"
+  gameType: GameType!
+  "True if the game is finished, false otherwise"
+  status: Boolean!
+}
+
+# Round Info
+type Round @entity {
+  "the name of the Round"
+  id: String!
+  "ref to the countries"
+  countryIds: [String!]!
+}
+
+# Each NFT Tokens
+type Team @entity {
+  "token id"
+  id: String!
+  "level of token"
+  level: BigInt!
+  "team id"
+  team: Bytes!
+  "predictor address"
+  predictor: Predictor!
+}
+
+# Tracks each Level Up Moment
+type Levelup @entity {
+  "account address"
+  id: Bytes!
+  "previous level"
+  prevLevel: BigInt!
+  "current level"
+  nowLevel: BigInt!
+}
+
+# All Predictors
+type Predictor @entity {
+  "user address"
+  id: Bytes!
+  "all tokens"
+  tokens: [Team!] @derivedFrom(field: "predictor")
+}
+
+# Top Points
+type TopPoint @entity(immutable: true) {
+  "random ID"
+  id: String!
+  "top points"
+  top: BigInt!
+  "second place points"
+  second: BigInt!
+  "third place points"
+  third: BigInt!
+}
+
+# Swapping NFT Positions
+type Swap @entity {
+  "address + Unique Hash"
+  id: String!
+  "first nft"
+  first: Bytes!
+  "second nft"
+  second: Bytes!
+}

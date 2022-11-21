@@ -1,0 +1,268 @@
+[
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "caller",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "currentGameId",
+        "type": "uint256"
+      }
+    ],
+    "name": "currentGame",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "winner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "gameId",
+        "type": "uint256"
+      }
+    ],
+    "name": "winner",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_question", "type": "string" },
+      { "internalType": "string", "name": "_optionOne", "type": "string" },
+      { "internalType": "string", "name": "_optionTwo", "type": "string" },
+      { "internalType": "string", "name": "_optionThree", "type": "string" },
+      { "internalType": "string", "name": "_optionFour", "type": "string" },
+      { "internalType": "string", "name": "answer", "type": "string" }
+    ],
+    "name": "AddQuizOne",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_question", "type": "string" },
+      { "internalType": "string", "name": "_optionOne", "type": "string" },
+      { "internalType": "string", "name": "_optionTwo", "type": "string" },
+      { "internalType": "string", "name": "_optionThree", "type": "string" },
+      { "internalType": "string", "name": "_optionFour", "type": "string" },
+      { "internalType": "string", "name": "answer", "type": "string" }
+    ],
+    "name": "AddQuizTwo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "claimPrizeOne",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "claimPrizeTwo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "currentGameId",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "quizId", "type": "uint256" }
+    ],
+    "name": "getScore",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "guess", "type": "string" },
+      { "internalType": "string", "name": "guessTwo", "type": "string" },
+      { "internalType": "string", "name": "guessThree", "type": "string" }
+    ],
+    "name": "guessQuestionsOne",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "guess", "type": "string" },
+      { "internalType": "string", "name": "guessTwo", "type": "string" },
+      { "internalType": "string", "name": "guessThree", "type": "string" }
+    ],
+    "name": "guessQuestionsTwo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "quizId", "type": "uint256" }
+    ],
+    "name": "haveYouClaimedPrize",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "quizId", "type": "uint256" }
+    ],
+    "name": "haveYouGuessed",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "joinGameOne",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "joinGameTwo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "quizId", "type": "uint256" }
+    ],
+    "name": "joinedGame",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "mintAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nextRound",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_quizId", "type": "uint256" }
+    ],
+    "name": "returnQuizOne",
+    "outputs": [
+      { "internalType": "string", "name": "question", "type": "string" },
+      { "internalType": "string", "name": "optionOne", "type": "string" },
+      { "internalType": "string", "name": "optionTwo", "type": "string" },
+      { "internalType": "string", "name": "optionThree", "type": "string" },
+      { "internalType": "string", "name": "optionFour", "type": "string" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_quizId", "type": "uint256" }
+    ],
+    "name": "returnQuizTwo",
+    "outputs": [
+      { "internalType": "string", "name": "question", "type": "string" },
+      { "internalType": "string", "name": "optionOne", "type": "string" },
+      { "internalType": "string", "name": "optionTwo", "type": "string" },
+      { "internalType": "string", "name": "optionThree", "type": "string" },
+      { "internalType": "string", "name": "optionFour", "type": "string" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_mintTeamOneAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setMintTeamOneAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "bool", "name": "_setPause", "type": "bool" }],
+    "name": "setPause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "startGameOne",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "startGameTwo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "startedQuizOne",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "startedQuizTwo",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "timeLimit",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

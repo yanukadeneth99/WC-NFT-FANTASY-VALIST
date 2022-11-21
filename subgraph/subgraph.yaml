@@ -1,0 +1,202 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Prediction
+    network: matic
+    source:
+      address: "0x8Ef484Bd170BCcA098D07B5956afcC97E000e5F6"
+      abi: Prediction
+      startBlock: 35774407
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - AllPredictors
+        - TopPoints
+        - Winners
+      abis:
+        - name: Prediction
+          file: ./abis/Prediction.json
+      eventHandlers:
+        - event: AllPredictors(address,address)
+          handler: handleAllPredictors
+        - event: TopPoints(indexed uint256,indexed uint256,indexed uint256)
+          handler: handleTopPoints
+        - event: Winners(address,address,address)
+          handler: handleWinners
+      file: ./src/prediction.ts
+  - kind: ethereum
+    name: ChangeOrders
+    network: matic
+    source:
+      address: "0xd9D944eA52265B9d307c0FBa090E08E386A3e34c"
+      abi: ChangeOrders
+      startBlock: 35774411
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - TeamsSwapped
+      abis:
+        - name: ChangeOrders
+          file: ./abis/ChangeOrders.json
+      eventHandlers:
+        - event: TeamsSwapped(address,bytes,bytes,indexed uint256)
+          handler: handleTeamsSwapped
+      file: ./src/change-orders.ts
+  - kind: ethereum
+    name: MintTeamsTwo
+    network: matic
+    source:
+      address: "0x23D03B8D3af3Ef25a0Af91be12963cc119d84261"
+      abi: MintTeamsTwo
+      startBlock: 35774428
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - LevelUp
+      abis:
+        - name: MintTeamsTwo
+          file: ./abis/MintTeamsTwo.json
+      eventHandlers:
+        - event: LevelUp(address,indexed uint256,indexed uint256)
+          handler: LevelUp
+      file: ./src/mint-teams-two.ts
+  - kind: ethereum
+    name: MintTeamsOne
+    network: matic
+    source:
+      address: "0xd9a725366610E49733AA1aa5C9a9C37ca46d4bD1"
+      abi: MintTeamsOne
+      startBlock: 35774425
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - LevelUp
+        - Mint
+      abis:
+        - name: MintTeamsOne
+          file: ./abis/MintTeamsOne.json
+      eventHandlers:
+        - event: LevelUp(address,indexed uint256,indexed uint256)
+          handler: handleLevelUp
+        - event: Mint(address,indexed uint256,indexed uint256,bytes,bool)
+          handler: handleMint
+      file: ./src/mint-teams-one.ts
+  - kind: ethereum
+    name: QuizGame
+    network: matic
+    source:
+      address: "0xA9e7555f03DE71Af83D7a473e38CA450500eFd6A"
+      abi: QuizGame
+      startBlock: 35774400
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - currentGame
+        - winner
+      abis:
+        - name: QuizGame
+          file: ./abis/QuizGame.json
+      eventHandlers:
+        - event: currentGame(address,uint256)
+          handler: handlecurrentGame
+        - event: winner(address,uint256)
+          handler: handlewinner
+      file: ./src/quiz-game.ts
+  - kind: ethereum
+    name: NumberGuessingGame
+    network: matic
+    source:
+      address: "0xf19719b7D08276C08809A3027DA279aA137683bC"
+      abi: NumberGuessingGame
+      startBlock: 35774403
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Ended
+        - Winners
+        - currentGame
+      abis:
+        - name: NumberGuessingGame
+          file: ./abis/NumberGuessingGame.json
+      eventHandlers:
+        - event: Ended(address,uint256)
+          handler: handleEnded
+        - event: Winners(address,bytes32,uint256)
+          handler: Winners
+        - event: currentGame(address,uint256)
+          handler: currentGame
+      file: ./src/number-guessing-game.ts
+  - kind: ethereum
+    name: WorldCupData4
+    network: matic
+    source:
+      address: "0x7650DC69358075cDaEfdb54Df386171e43B54D0f"
+      abi: WorldCupData4
+      startBlock: 35774434
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ReceiveTeamTop4
+      abis:
+        - name: WorldCupData4
+          file: ./abis/WorldCupData4.json
+      eventHandlers:
+        - event: ReceiveTeamTop4(bytes32,indexed string)
+          handler: ReceiveTeamTop4
+      file: ./src/world-cup-data-4.ts
+  - kind: ethereum
+    name: WorldCupData8
+    network: matic
+    source:
+      address: "0x5c824ef8E60ADa057781Eec04900d9B2B454558A"
+      abi: WorldCupData8
+      startBlock: 35774434
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ReceiveTeamTop8
+      abis:
+        - name: WorldCupData8
+          file: ./abis/WorldCupData8.json
+      eventHandlers:
+        - event: ReceiveTeamTop8(bytes32,indexed string)
+          handler: ReceiveTeamTop8
+      file: ./src/world-cup-data-8.ts
+  - kind: ethereum
+    name: WorldCupData16
+    network: matic
+    source:
+      address: "0xcF732660f48CD76F6b576b3959cBb7D97353e889"
+      abi: WorldCupData16
+      startBlock: 35774432
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ReceiveTeamTop16
+      abis:
+        - name: WorldCupData16
+          file: ./abis/WorldCupData16.json
+      eventHandlers:
+        - event: ReceiveTeamTop16(bytes32,indexed string)
+          handler: handleReceiveTeamTop16
+      file: ./src/world-cup-data-16.ts
